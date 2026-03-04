@@ -3,7 +3,7 @@ import { Instagram, Twitter, Youtube, Linkedin } from "lucide-react";
 import GlassCard from "./GlassCard";
 
 const socials = [
-  { icon: Instagram, href: "https://instagram.com/itz_shiva_opp },
+  { icon: Instagram, href: "https://instagram.com/itz_shiva_opp" },
   { icon: Twitter, href: "https://x.com/itz_shiva_opp" },
   { icon: Telegram, href: "https://t.me/itzshivaop" },
   { icon: Github, href: "https://linkedin.com/in/ShivaOPP" },
