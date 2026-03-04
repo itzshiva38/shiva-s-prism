@@ -184,7 +184,9 @@ const HeroSection = () => (
         animate={{ opacity: 1 }}
         transition={{ delay: 0.7 }}
       >
-        Days kept on getting boring day by day but learning new things makes them intresting. 🚀
+        Building beautiful digital experiences that inspire. Turning ideas into
+        pixels and code — one creation at a time. Welcome to my corner of the
+        internet. 🚀
       </motion.p>
 
       {/* Location */}
@@ -196,7 +198,7 @@ const HeroSection = () => (
         transition={{ delay: 0.8 }}
       >
         <MapPin className="w-3.5 h-3.5" />
-        <span>Rajasthan, India 🇮🇳</span>
+        <span>Kota, Rajasthan, India 🇮🇳</span>
       </motion.div>
     </GlassCard>
   </section>

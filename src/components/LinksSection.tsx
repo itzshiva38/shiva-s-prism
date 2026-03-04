@@ -5,12 +5,15 @@ import {
 } from "lucide-react";
 
 const links = [
-  { icon: Youtube, title: "YouTube", desc: "Latest videos & vlogs", href: "https://youtube.com/@notpc923", color: "#ff0000" },
-  { icon: Instagram, title: "Instagram", desc: "Daily life & design", href: "https://instagram.com/itz_shiva_opp", color: "#e1306c" },
-  { icon: Twitter, title: "X / Twitter", desc: "Thoughts & updates", href: "https://x.com/itz_shiva_opp", color: "#1da1f2" },
-  { icon: Music, title: "Spotify", desc: "My playlists & music", href: "https://open.spotify.com/user/317vxjatpvmqbcaeazn6ifswqsa4", color: "#1db954" },
-  { icon: MessageCircle, title: "Discord", desc: "Join the community", href: "https://discord.com/users/980744333521203210", color: "#5865f2" },
-  { icon: Telegram, title: "Telegram", desc: "Development and chatting area", href: "http://t.me/itzshivaop", color: "#ff0000" },,
+  { icon: Youtube, title: "YouTube", desc: "Latest videos & vlogs", href: "https://youtube.com/@shiva", color: "#ff0000" },
+  { icon: Instagram, title: "Instagram", desc: "Daily life & design", href: "https://instagram.com/shiva", color: "#e1306c" },
+  { icon: Twitter, title: "X / Twitter", desc: "Thoughts & updates", href: "https://x.com/shiva", color: "#1da1f2" },
+  { icon: Globe, title: "Portfolio", desc: "Full work & projects", href: "https://shiva.dev", color: "#67e8f9" },
+  { icon: Music, title: "Spotify", desc: "My playlists & music", href: "https://open.spotify.com/user/shiva", color: "#1db954" },
+  { icon: MessageCircle, title: "Discord", desc: "Join the community", href: "https://discord.gg/shiva", color: "#5865f2" },
+  { icon: Newspaper, title: "Newsletter", desc: "Subscribe for updates", href: "https://shiva.substack.com", color: "#ff6719" },
+  { icon: Coffee, title: "Buy Me a Coffee", desc: "Support my work ☕", href: "https://buymeacoffee.com/shiva", color: "#ffdd00" },
+  { icon: Mail, title: "Contact / Collab", desc: "Let's connect 💌", href: "mailto:hello@shiva.dev", color: "#c084fc" },
 ];
 
 const LinksSection = () => (
