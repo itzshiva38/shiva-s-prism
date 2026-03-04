@@ -143,7 +143,7 @@ const HeroSection = () => (
           💫
         </motion.span>
         <img
-          src="https://api.dicebear.com/9.x/avataaars/svg?seed=Shiva&backgroundColor=c084fc"
+          src="/images/avatar.jpg"
           alt="Shiva's avatar"
           className="absolute inset-[4px] rounded-full object-cover"
           style={{
