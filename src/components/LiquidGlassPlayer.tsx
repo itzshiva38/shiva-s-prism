@@ -16,9 +16,12 @@ const playlist = [
 
 const LiquidGlassPlayer = () => {
   const [playing, setPlaying] = useState(false);
-  const [trackIndex, setTrackIndex] = useState(0);
+  const [trackIndex, setTrackIndex] = useState(() => Math.floor(Math.random() * playlist.length));
   const [progress, setProgress] = useState(0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const hasAutoPlayed = useRef(false);
+
+  const track = playlist[trackIndex];
 
   const track = playlist[trackIndex];
 
