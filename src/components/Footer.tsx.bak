@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Instagram, Twitter, Youtube, Linkedin } from "lucide-react";
+import { Instagram, Twitter, Linkedin, Github, Telegram } from "lucide-react";
 import GlassCard from "./GlassCard";
 
 const socials = [
