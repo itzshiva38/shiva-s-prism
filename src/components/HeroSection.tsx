@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { MapPin, BadgeCheck, Sparkles, Cloud } from "lucide-react";
+import { MapPin, BadgeCheck, Sparkles, Cloud, Star, Zap, Monitor } from "lucide-react";
 import GlassCard from "./GlassCard";
 
 const FloatingElement = ({
@@ -28,29 +28,73 @@ const FloatingElement = ({
 
 const HeroSection = () => (
   <section className="min-h-screen flex items-center justify-center px-4 py-12 relative z-10">
-    {/* Floating decorative elements */}
-    <FloatingElement className="top-[12%] left-[8%]" delay={0} duration={7}>
-      <Cloud className="w-10 h-10" style={{ color: "rgba(192,132,252,0.15)" }} />
+    {/* Dreamy sky-blue glow at top */}
+    <div
+      className="absolute top-0 left-0 right-0 h-[60vh] pointer-events-none"
+      style={{
+        background: "radial-gradient(ellipse 80% 50% at 50% 0%, rgba(125,211,252,0.12), transparent)",
+      }}
+    />
+
+    {/* Floating glassmorphic clouds — wildhorizon.co inspired */}
+    <FloatingElement className="top-[8%] left-[4%] sm:left-[10%]" delay={0} duration={8} y={12}>
+      <div
+        className="px-6 py-3 rounded-[20px]"
+        style={{
+          background: "radial-gradient(circle at 30% 20%, rgba(255,255,255,0.1), transparent 60%), rgba(255,255,255,0.05)",
+          backdropFilter: "blur(12px)",
+          border: "1px solid rgba(255,255,255,0.1)",
+          boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
+        }}
+      >
+        <Cloud className="w-8 h-8" style={{ color: "rgba(125,211,252,0.4)" }} />
+      </div>
     </FloatingElement>
-    <FloatingElement className="top-[20%] right-[10%]" delay={1.5} duration={5} y={10}>
-      <Sparkles className="w-6 h-6" style={{ color: "rgba(103,232,249,0.2)" }} />
+    <FloatingElement className="top-[10%] right-[4%] sm:right-[10%]" delay={1.5} duration={7} y={10}>
+      <div
+        className="px-5 py-3 rounded-[20px]"
+        style={{
+          background: "radial-gradient(circle at 30% 20%, rgba(255,255,255,0.1), transparent 60%), rgba(255,255,255,0.05)",
+          backdropFilter: "blur(12px)",
+          border: "1px solid rgba(255,255,255,0.1)",
+          boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
+        }}
+      >
+        <Cloud className="w-10 h-10" style={{ color: "rgba(192,132,252,0.3)" }} />
+      </div>
     </FloatingElement>
-    <FloatingElement className="bottom-[25%] left-[5%]" delay={2} duration={8} y={20}>
-      <Sparkles className="w-8 h-8" style={{ color: "rgba(244,114,182,0.15)" }} />
+
+    {/* Whimsical floating creative elements */}
+    <FloatingElement className="top-[20%] left-[15%]" delay={2} duration={9} y={18}>
+      <Sparkles className="w-5 h-5" style={{ color: "rgba(251,191,36,0.3)" }} />
     </FloatingElement>
-    <FloatingElement className="bottom-[30%] right-[8%]" delay={0.8} duration={6}>
-      <Cloud className="w-12 h-12" style={{ color: "rgba(129,140,248,0.12)" }} />
+    <FloatingElement className="top-[25%] right-[15%]" delay={0.5} duration={6} y={10}>
+      <Star className="w-4 h-4" style={{ color: "rgba(244,114,182,0.3)" }} />
     </FloatingElement>
-    <FloatingElement className="top-[40%] left-[15%]" delay={3} duration={9} y={12}>
+    <FloatingElement className="bottom-[30%] left-[8%]" delay={3} duration={10} y={20}>
+      <Zap className="w-5 h-5" style={{ color: "rgba(103,232,249,0.25)" }} />
+    </FloatingElement>
+    <FloatingElement className="bottom-[35%] right-[6%]" delay={1} duration={7}>
+      <Monitor className="w-6 h-6" style={{ color: "rgba(129,140,248,0.2)" }} />
+    </FloatingElement>
+
+    {/* Floating glowing dots */}
+    <FloatingElement className="top-[35%] left-[20%]" delay={2.5} duration={8} y={12}>
       <div
         className="w-3 h-3 rounded-full"
-        style={{ background: "rgba(192,132,252,0.25)", boxShadow: "0 0 12px rgba(192,132,252,0.3)" }}
+        style={{ background: "rgba(192,132,252,0.3)", boxShadow: "0 0 14px rgba(192,132,252,0.4)" }}
       />
     </FloatingElement>
-    <FloatingElement className="top-[35%] right-[18%]" delay={2.5} duration={7} y={18}>
+    <FloatingElement className="top-[15%] right-[25%]" delay={4} duration={7} y={16}>
       <div
         className="w-2 h-2 rounded-full"
-        style={{ background: "rgba(103,232,249,0.3)", boxShadow: "0 0 10px rgba(103,232,249,0.3)" }}
+        style={{ background: "rgba(251,191,36,0.35)", boxShadow: "0 0 10px rgba(251,191,36,0.4)" }}
+      />
+    </FloatingElement>
+    <FloatingElement className="bottom-[25%] left-[25%]" delay={1.8} duration={9} y={14}>
+      <div
+        className="w-2.5 h-2.5 rounded-full"
+        style={{ background: "rgba(103,232,249,0.3)", boxShadow: "0 0 12px rgba(103,232,249,0.4)" }}
       />
     </FloatingElement>
 
@@ -70,7 +114,7 @@ const HeroSection = () => (
         <div
           className="absolute inset-0 rounded-full animate-spin-slow"
           style={{
-            background: "conic-gradient(from 0deg, #c084fc, #f472b6, #67e8f9, #c084fc)",
+            background: "conic-gradient(from 0deg, #c084fc, #f472b6, #67e8f9, #fbbf24, #c084fc)",
             padding: 3,
           }}
         >
@@ -83,6 +127,21 @@ const HeroSection = () => (
             boxShadow: "0 0 30px rgba(192,132,252,0.3), 0 0 60px rgba(192,132,252,0.15)",
           }}
         />
+        {/* Sparkle decorations on avatar */}
+        <motion.span
+          className="absolute -top-2 -right-2 text-sm"
+          animate={{ scale: [1, 1.3, 1], opacity: [0.7, 1, 0.7] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          ✨
+        </motion.span>
+        <motion.span
+          className="absolute -bottom-1 -left-2 text-xs"
+          animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
+          transition={{ duration: 2.5, delay: 0.5, repeat: Infinity }}
+        >
+          💫
+        </motion.span>
         <img
           src="https://api.dicebear.com/9.x/avataaars/svg?seed=Shiva&backgroundColor=c084fc"
           alt="Shiva's avatar"
@@ -114,7 +173,7 @@ const HeroSection = () => (
         animate={{ opacity: 1 }}
         transition={{ delay: 0.6 }}
       >
-        Creative Technologist • Designer • Content Creator
+        Creative Technologist • Designer • Content Creator ✨
       </motion.p>
 
       {/* Bio */}
@@ -127,7 +186,7 @@ const HeroSection = () => (
       >
         Building beautiful digital experiences that inspire. Turning ideas into
         pixels and code — one creation at a time. Welcome to my corner of the
-        internet.
+        internet. 🚀
       </motion.p>
 
       {/* Location */}
