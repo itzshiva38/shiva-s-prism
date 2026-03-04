@@ -196,7 +196,7 @@ const HeroSection = () => (
         transition={{ delay: 0.8 }}
       >
         <MapPin className="w-3.5 h-3.5" />
-        <span>Rajasthan, India 🇮🇳</span>
+        <span>Kota, Rajasthan, India 🇮🇳</span>
       </motion.div>
     </GlassCard>
   </section>

@@ -9,8 +9,7 @@ const links = [
   { icon: Instagram, title: "Instagram", desc: "Daily life & design", href: "https://instagram.com/itz_shiva_opp", color: "#e1306c" },
   { icon: Twitter, title: "X / Twitter", desc: "Thoughts & updates", href: "https://x.com/itz_shiva_opp", color: "#1da1f2" },
   { icon: Music, title: "Spotify", desc: "My playlists & music", href: "https://open.spotify.com/user/317vxjatpvmqbcaeazn6ifswqsa4", color: "#1db954" },
-  { icon: MessageCircle, title: "Discord", desc: "Join the community", href: "https://discord.com/users/980744333521203210", color: "#5865f2" },
-  { icon: Telegram, title: "Telegram", desc: "Development and chatting area", href: "http://t.me/itzshivaop", color: "#ff0000" },,
+  { icon: MessageCircle, title: "Discord", desc: "Join the community", href: "https://discord.com/users/980744333521203210", color: "#5865f2" },,
 ];
 
 const LinksSection = () => (
