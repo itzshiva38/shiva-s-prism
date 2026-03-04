@@ -23,8 +23,6 @@ const LiquidGlassPlayer = () => {
 
   const track = playlist[trackIndex];
 
-  const track = playlist[trackIndex];
-
   const playNext = useCallback(() => {
     setTrackIndex((i) => (i + 1) % playlist.length);
   }, []);
