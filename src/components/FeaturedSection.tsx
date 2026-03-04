@@ -3,6 +3,18 @@ import { Play, Sparkles, FileText } from "lucide-react";
 import GlassCard from "./GlassCard";
 
 const featured = [
+{
+    icon: Play,
+    label: "Latest Video",
+    title: "Building a Design System",
+    gradient: "linear-gradient(135deg, #c084fc, #818cf8)",
+  },
+  {
+    icon: Sparkles,
+    label: "Featured Project",
+    title: "Glass UI Kit v2.0",
+    gradient: "linear-gradient(135deg, #f472b6, #fb923c)",
+  },
   
   {
     icon: FileText,
