@@ -5,8 +5,8 @@ import GlassCard from "./GlassCard";
 const socials = [
   { icon: Instagram, href: "https://instagram.com/itz_shiva_opp" },
   { icon: Twitter, href: "https://x.com/itz_shiva_opp" },
-  { icon: Send, href: "https://t.me/itzshivaop" },
-  { icon: GitHub , href: "https://github.com/in/ShivaOPP" },
+  { icon: Youtube, href: "https://t.me/itzshivaop" },
+  { icon: Linkedin, href: "https://linkedin.com/in/ShivaOPP" },
 ];
 
 const Footer = () => (
