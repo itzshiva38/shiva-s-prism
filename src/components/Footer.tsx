@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import { Instagram, Twitter, Linkedin, Github } from "lucide-react";
+import { Instagram, Twitter, Youtube, Linkedin } from "lucide-react";
 import GlassCard from "./GlassCard";
 
 const socials = [
   { icon: Instagram, href: "https://instagram.com/itz_shiva_opp" },
   { icon: Twitter, href: "https://x.com/itz_shiva_opp" },
-  { icon: Telegram, href: "https://t.me/itzshivaop" },
-  { icon: Github, href: "https://linkedin.com/in/ShivaOPP" },
+  { icon: Youtube, href: "https://t.me/itzshivaop" },
+  { icon: Linkedin, href: "https://linkedin.com/in/ShivaOPP" },
 ];
 
 const Footer = () => (
