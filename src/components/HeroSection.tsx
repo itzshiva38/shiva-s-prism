@@ -145,7 +145,7 @@ const HeroSection = () => (
         <img
           src="/images/avatar.jpg"
           alt="Shiva's avatar"
-          className="absolute inset-[4px] rounded-full object-cover"
+          className="absolute inset-[4px] rounded-full object-cover w-[calc(100%-8px)] h-[calc(100%-8px)]"
           style={{
             boxShadow: "0 0 20px rgba(192, 132, 252, 0.4)",
           }}

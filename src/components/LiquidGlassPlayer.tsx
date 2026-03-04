@@ -16,9 +16,10 @@ const playlist = [
 
 const LiquidGlassPlayer = () => {
   const [playing, setPlaying] = useState(false);
-  const [trackIndex, setTrackIndex] = useState(0);
+  const [trackIndex, setTrackIndex] = useState(() => Math.floor(Math.random() * playlist.length));
   const [progress, setProgress] = useState(0);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const hasAutoPlayed = useRef(false);
 
   const track = playlist[trackIndex];
 
@@ -30,12 +31,18 @@ const LiquidGlassPlayer = () => {
     setTrackIndex((i) => (i - 1 + playlist.length) % playlist.length);
   }, []);
 
-  // Handle track change
+  // Handle track change + autoplay on first mount
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
     audio.src = track.src;
-    if (playing) audio.play().catch(() => {});
+    if (!hasAutoPlayed.current) {
+      hasAutoPlayed.current = true;
+      setPlaying(true);
+      audio.play().catch(() => {});
+    } else if (playing) {
+      audio.play().catch(() => {});
+    }
   }, [trackIndex]);
 
   // Handle play/pause
