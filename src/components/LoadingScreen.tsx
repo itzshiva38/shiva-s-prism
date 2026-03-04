@@ -12,23 +12,23 @@ interface Particle {
   delay: number;
 }
 
-const COLORS = ["#c084fc", "#f472b6", "#67e8f9", "#818cf8", "#fb923c", "#a78bfa", "#38bdf8"];
+const COLORS = ["#c084fc", "#f472b6", "#67e8f9", "#818cf8", "#fb923c", "#a78bfa", "#38bdf8", "#fbbf24", "#34d399"];
 
 const generateParticles = (count: number): Particle[] =>
   Array.from({ length: count }, (_, i) => ({
     id: i,
     x: 0,
     y: 0,
-    size: Math.random() * 8 + 3,
+    size: Math.random() * 10 + 4,
     color: COLORS[Math.floor(Math.random() * COLORS.length)],
     angle: (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.5,
-    speed: Math.random() * 300 + 150,
-    delay: Math.random() * 0.15,
+    speed: Math.random() * 350 + 120,
+    delay: Math.random() * 0.12,
   }));
 
 const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
   const [phase, setPhase] = useState<"loading" | "blast" | "done">("loading");
-  const [particles] = useState(() => generateParticles(60));
+  const [particles] = useState(() => generateParticles(70));
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -92,13 +92,42 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
             }}
           />
 
-          {/* Stylized S Logo */}
+          {/* Floating sparkles around the cat */}
+          {phase === "loading" && (
+            <>
+              {[...Array(6)].map((_, i) => (
+                <motion.div
+                  key={`sparkle-${i}`}
+                  className="absolute text-lg"
+                  style={{
+                    top: `${40 + Math.sin(i * 1.2) * 15}%`,
+                    left: `${42 + Math.cos(i * 1.2) * 18}%`,
+                  }}
+                  animate={{
+                    y: [-10, 10, -10],
+                    opacity: [0.3, 1, 0.3],
+                    scale: [0.8, 1.2, 0.8],
+                  }}
+                  transition={{
+                    duration: 2 + i * 0.3,
+                    delay: i * 0.2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                >
+                  ✨
+                </motion.div>
+              ))}
+            </>
+          )}
+
+          {/* Cat emoji as the central icon */}
           <motion.div
             className="relative flex items-center justify-center"
             animate={
               phase === "blast"
-                ? { scale: [1, 1.3, 0], opacity: [1, 1, 0] }
-                : { scale: [0.98, 1.02, 0.98] }
+                ? { scale: [1, 1.5, 0], opacity: [1, 1, 0], rotate: [0, 15, -15, 0] }
+                : { scale: [0.95, 1.08, 0.95] }
             }
             transition={
               phase === "blast"
@@ -106,20 +135,20 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
                 : { duration: 2, repeat: Infinity, ease: "easeInOut" }
             }
           >
-            {/* Glow ring */}
+            {/* Glow ring behind cat */}
             <motion.div
-              className="absolute w-32 h-32 rounded-full"
+              className="absolute w-36 h-36 rounded-full"
               style={{
-                background: "conic-gradient(from 0deg, #c084fc, #f472b6, #67e8f9, #c084fc)",
-                filter: "blur(8px)",
-                opacity: 0.6,
+                background: "conic-gradient(from 0deg, #c084fc, #f472b6, #67e8f9, #fbbf24, #c084fc)",
+                filter: "blur(10px)",
+                opacity: 0.5,
               }}
               animate={{ rotate: 360 }}
               transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
             />
-            {/* Inner circle */}
+            {/* Glass circle holding the cat */}
             <div
-              className="relative w-28 h-28 rounded-full flex items-center justify-center"
+              className="relative w-32 h-32 rounded-full flex items-center justify-center"
               style={{
                 background:
                   "radial-gradient(circle at 30% 20%, rgba(255,255,255,0.15), transparent 60%), rgba(255,255,255,0.08)",
@@ -129,36 +158,35 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
                   "0 8px 32px rgba(0,0,0,0.3), inset 0 0 0 1px rgba(255,255,255,0.1), 0 0 60px rgba(192,132,252,0.2)",
               }}
             >
-              <span
-                className="text-5xl font-black glass-text select-none"
+              <motion.span
+                className="text-6xl select-none"
                 style={{
-                  background: "linear-gradient(135deg, #c084fc, #f472b6, #67e8f9)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  filter: "drop-shadow(0 2px 8px rgba(192,132,252,0.5))",
+                  filter: "drop-shadow(0 4px 12px rgba(192,132,252,0.5))",
                 }}
+                animate={phase === "loading" ? { rotate: [-5, 5, -5] } : {}}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
               >
-                S
-              </span>
+                😺
+              </motion.span>
             </div>
           </motion.div>
 
           {/* Progress bar (loading phase) */}
           {phase === "loading" && (
             <motion.div
-              className="absolute bottom-[30%] w-48"
+              className="absolute bottom-[28%] w-48"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
             >
               <div
-                className="h-1 rounded-full overflow-hidden"
+                className="h-1.5 rounded-full overflow-hidden"
                 style={{ background: "rgba(255,255,255,0.08)" }}
               >
                 <motion.div
                   className="h-full rounded-full"
                   style={{
-                    background: "linear-gradient(90deg, #c084fc, #f472b6, #67e8f9)",
+                    background: "linear-gradient(90deg, #c084fc, #f472b6, #67e8f9, #fbbf24)",
                   }}
                   animate={{ width: `${Math.min(progress, 100)}%` }}
                   transition={{ duration: 0.2 }}
@@ -168,7 +196,7 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
                 className="text-center mt-3 text-xs glass-text tracking-widest uppercase"
                 style={{ color: "rgba(255,255,255,0.4)" }}
               >
-                Loading magic…
+                Loading magic… 🪄
               </p>
             </motion.div>
           )}
@@ -200,6 +228,27 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
                   ease: "easeOut",
                 }}
               />
+            ))}
+
+          {/* Emoji confetti on blast */}
+          {phase === "blast" &&
+            ["✨", "🌟", "💫", "⭐", "🎉", "🎊"].map((emoji, i) => (
+              <motion.span
+                key={`emoji-${i}`}
+                className="absolute text-2xl"
+                style={{ top: "50%", left: "50%" }}
+                initial={{ x: 0, y: 0, opacity: 1, scale: 1 }}
+                animate={{
+                  x: Math.cos((Math.PI * 2 * i) / 6) * (200 + Math.random() * 100),
+                  y: Math.sin((Math.PI * 2 * i) / 6) * (200 + Math.random() * 100),
+                  opacity: 0,
+                  scale: 0.3,
+                  rotate: Math.random() * 360,
+                }}
+                transition={{ duration: 0.9, delay: i * 0.03, ease: "easeOut" }}
+              >
+                {emoji}
+              </motion.span>
             ))}
         </motion.div>
       )}

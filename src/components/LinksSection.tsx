@@ -10,14 +10,23 @@ const links = [
   { icon: Twitter, title: "X / Twitter", desc: "Thoughts & updates", href: "https://x.com/shiva", color: "#1da1f2" },
   { icon: Globe, title: "Portfolio", desc: "Full work & projects", href: "https://shiva.dev", color: "#67e8f9" },
   { icon: Music, title: "Spotify", desc: "My playlists & music", href: "https://open.spotify.com/user/shiva", color: "#1db954" },
-  { icon: MessageCircle, title: "Discord", desc: "Join the circle", href: "https://discord.gg/shiva", color: "#5865f2" },
+  { icon: MessageCircle, title: "Discord", desc: "Join the community", href: "https://discord.gg/shiva", color: "#5865f2" },
   { icon: Newspaper, title: "Newsletter", desc: "Subscribe for updates", href: "https://shiva.substack.com", color: "#ff6719" },
-  { icon: Coffee, title: "Buy Me a Coffee", desc: "Support my work", href: "https://buymeacoffee.com/shiva", color: "#ffdd00" },
-  { icon: Mail, title: "Contact / Collab", desc: "Let's connect", href: "mailto:hello@shiva.dev", color: "#c084fc" },
+  { icon: Coffee, title: "Buy Me a Coffee", desc: "Support my work ☕", href: "https://buymeacoffee.com/shiva", color: "#ffdd00" },
+  { icon: Mail, title: "Contact / Collab", desc: "Let's connect 💌", href: "mailto:hello@shiva.dev", color: "#c084fc" },
 ];
 
 const LinksSection = () => (
   <section className="relative z-10 px-4 pb-8 -mt-16 max-w-md mx-auto space-y-3">
+    {/* Section divider with warm glow */}
+    <div className="flex items-center gap-3 mb-4 px-2">
+      <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)" }} />
+      <span className="text-xs glass-text tracking-widest uppercase" style={{ color: "rgba(255,255,255,0.3)" }}>
+        🔗 Links
+      </span>
+      <div className="flex-1 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)" }} />
+    </div>
+
     {links.map((link, i) => (
       <motion.a
         key={link.title}
